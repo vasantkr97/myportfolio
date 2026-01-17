@@ -1,0 +1,189 @@
+@font-face {
+  font-family: "Roobert Mono";
+  src: url("/fonts/RoobertTRIAL-Regular.woff2") format("woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Roobert Mono";
+  src: url("/fonts/RoobertTRIAL-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Roobert Mono";
+  src: url("/fonts/RoobertTRIAL-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@import "tailwindcss";
+
+/* Tailwind v4 Theme Configuration */
+@theme {
+  /* Background colors */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-card: var(--card-bg);
+
+  /* Transition Defaults */
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: ease-in-out;
+
+  /* Text colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  /* Accent colors */
+  --color-accent: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+
+  /* Border colors */
+  --color-border: var(--border-color);
+
+  /* Special colors */
+  --color-code-bg: var(--code-bg);
+  --color-blockquote-bg: var(--blockquote-bg);
+}
+
+/* Theme Variables - Light Mode (default) */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #c9cdd1;
+  --text-primary: #333333;
+  --text-secondary: #7b7b7b;
+  --accent-primary: #0707ac;
+  --accent-secondary: #000088;
+  --border-color: #7b7b7b;
+  --card-bg: #c9cdd1;
+  --code-bg: rgba(123, 123, 123, 0.1);
+  --blockquote-bg: rgba(7, 7, 172, 0.05);
+  --progress-bar-bg: #0707ac;
+  --accent-primary-rgb: 7, 7, 172;
+  --select-bg: rgba(123, 123, 123, 0.1);
+  --select-hover: rgba(123, 123, 123, 0.2);
+
+  /* Transition Standard */
+  --transition-standard: 0.3s ease-in-out;
+
+  /* GitHub activity chart colors - light mode */
+  --github-activity-level0: #f0f0f0;
+  --github-activity-level1: #d3ddee;
+  --github-activity-level4: #9db3d9;
+  --github-activity-level8: #3939bd;
+  --github-activity-level12: #0707ac;
+}
+
+/* Theme Variables - Dark Mode */
+:root.dark-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #202020;
+  --text-primary: #e0e0e0;
+  --text-secondary: #c0bebe;
+  --accent-primary: #ff5533;
+  --accent-secondary: #a0a0a0;
+  --border-color: #555555;
+  --card-bg: #202020;
+  --code-bg: rgba(123, 123, 123, 0.2);
+  --blockquote-bg: rgba(123, 123, 123, 0.1);
+  --progress-bar-bg: #ff5533;
+  --accent-primary-rgb: 255, 85, 51;
+  --select-bg: rgba(123, 123, 123, 0.2);
+  --select-hover: rgba(123, 123, 123, 0.3);
+
+  /* GitHub activity chart colors - dark mode */
+  --github-activity-level0: #1a2233;
+  --github-activity-level1: #2d3342;
+  --github-activity-level4: #ff7a60;
+  --github-activity-level8: #ff5533;
+  --github-activity-level12: #ff3311;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  font-family: "Roobert Mono", sans-serif;
+  /* font-family: "Cascadia Mono", sans-serif; */
+  /* font-family: "Playfair Display", serif; */
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+
+}
+
+/* Custom scrollbar for the page */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--text-secondary);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  html,
+  body,
+  * {
+    transition: none !important;
+  }
+}
+
+
+.dg {
+  display: none;
+}
+
+/* Apply hidden state only when JS is loading, remove after animations start */
+.js-loading #main-navbar {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-20px) !important;
+}
+
+.js-loading .hero-top-badges {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Fallback for no JS - hide initially but make visible after a short delay */
+#main-navbar,
+.hero-top-badges {
+  opacity: 0;
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0s 0.3s;
+}
+
+/* Show elements after 1 second if animations don't run */
+@media (prefers-reduced-motion: no-preference) {
+
+  html:not(.js-loading) #main-navbar,
+  html:not(.js-loading) .hero-top-badges {
+    animation: reveal-delayed 1s forwards;
+  }
+}
+
+@keyframes reveal-delayed {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  99% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
