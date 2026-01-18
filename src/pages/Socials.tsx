@@ -59,24 +59,6 @@ const Socials: React.FC = () => {
                                 <span className="text-lg">Twitter / X</span>
                                 <span className="text-sm">→</span>
                             </a>
-                            <a
-                                href={socials.instagram}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors"
-                            >
-                                <span className="text-lg">Instagram</span>
-                                <span className="text-sm">→</span>
-                            </a>
-                            <a
-                                href={socials.discord}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors"
-                            >
-                                <span className="text-lg">Discord</span>
-                                <span className="text-sm">→</span>
-                            </a>
                         </div>
                     </div>
 

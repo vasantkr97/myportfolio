@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 @font-face {
   font-family: "Roobert Mono";
   src: url("/fonts/RoobertTRIAL-Regular.woff2") format("woff2");
@@ -43,18 +49,23 @@
   /* Special colors */
   --color-code-bg: var(--code-bg);
   --color-blockquote-bg: var(--blockquote-bg);
+
+  /* Fonts */
+  --font-sans: "Figtree", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-display: "Space Grotesk", sans-serif;
 }
 
 /* Theme Variables - Light Mode (default) */
 :root {
   --bg-primary: #ffffff;
-  --bg-secondary: #c9cdd1;
+  --bg-secondary: #ffffff;
   --text-primary: #333333;
   --text-secondary: #7b7b7b;
   --accent-primary: #0707ac;
   --accent-secondary: #000088;
   --border-color: #7b7b7b;
-  --card-bg: #c9cdd1;
+  --card-bg: #ffffff;
   --code-bg: rgba(123, 123, 123, 0.1);
   --blockquote-bg: rgba(7, 7, 172, 0.05);
   --progress-bar-bg: #0707ac;
@@ -65,37 +76,37 @@
   /* Transition Standard */
   --transition-standard: 0.3s ease-in-out;
 
-  /* GitHub activity chart colors - light mode */
+  /* GitHub activity chart colors - light mode (black shades) */
   --github-activity-level0: #f0f0f0;
-  --github-activity-level1: #d3ddee;
-  --github-activity-level4: #9db3d9;
-  --github-activity-level8: #3939bd;
-  --github-activity-level12: #0707ac;
+  --github-activity-level1: #c6c6c6;
+  --github-activity-level4: #6e6e6e;
+  --github-activity-level8: #3d3d3d;
+  --github-activity-level12: #1a1a1a;
 }
 
 /* Theme Variables - Dark Mode */
 :root.dark-theme {
-  --bg-primary: #121212;
-  --bg-secondary: #202020;
-  --text-primary: #e0e0e0;
+  --bg-primary: #0b0d0e;
+  --bg-secondary: #0b0d0e;
+  --text-primary: #ffffff;
   --text-secondary: #c0bebe;
-  --accent-primary: #ff5533;
-  --accent-secondary: #a0a0a0;
-  --border-color: #555555;
-  --card-bg: #202020;
+  --accent-primary: #ffef00;
+  --accent-secondary: #ffef00;
+  --border-color: #6e6e6e;
+  --card-bg: #0b0d0e;
   --code-bg: rgba(123, 123, 123, 0.2);
   --blockquote-bg: rgba(123, 123, 123, 0.1);
-  --progress-bar-bg: #ff5533;
-  --accent-primary-rgb: 255, 85, 51;
+  --progress-bar-bg: #ffef00;
+  --accent-primary-rgb: 255, 239, 0;
   --select-bg: rgba(123, 123, 123, 0.2);
   --select-hover: rgba(123, 123, 123, 0.3);
 
-  /* GitHub activity chart colors - dark mode */
-  --github-activity-level0: #1a2233;
-  --github-activity-level1: #2d3342;
-  --github-activity-level4: #ff7a60;
-  --github-activity-level8: #ff5533;
-  --github-activity-level12: #ff3311;
+  /* GitHub activity chart colors - dark mode (white shades) */
+  --github-activity-level0: #2a2a2a;
+  --github-activity-level1: #4a4a4a;
+  --github-activity-level4: #8a8a8a;
+  --github-activity-level8: #c0c0c0;
+  --github-activity-level12: #ffffff;
 }
 
 * {
@@ -105,7 +116,7 @@
 
 html,
 body {
-  font-family: "Roobert Mono", sans-serif;
+  font-family: var(--font-sans);
   /* font-family: "Cascadia Mono", sans-serif; */
   /* font-family: "Playfair Display", serif; */
   background-color: var(--bg-secondary);

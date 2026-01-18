@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Logo from './Logo'
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -116,11 +115,10 @@ const Navbar: React.FC = () => {
       {/* Mobile Navigation Sidebar */}
       <div
         id="mobile-sidebar"
-        className={`fixed inset-0 h-full w-full z-[40] bg-[var(--bg-secondary)] ease-in-out overflow-y-auto p-4 flex flex-col transition-all duration-300 ${
-          isMenuOpen
+        className={`fixed inset-0 h-full w-full z-[40] bg-[var(--bg-secondary)] ease-in-out overflow-y-auto p-4 flex flex-col transition-all duration-300 ${isMenuOpen
             ? 'opacity-100 visible translate-y-0'
             : 'opacity-0 invisible translate-y-8'
-        }`}
+          }`}
       >
         <nav className="flex flex-col justify-between h-full">
           <div></div>
@@ -135,31 +133,31 @@ const Navbar: React.FC = () => {
               </Link>
             </li>
             <li className="mb-6">
-              <Link
-                to="/blogs"
+              <a
+                href="#about"
                 onClick={handleLinkClick}
                 className="text-3xl font-medium text-[var(--text-primary)] hover:text-[var(--accent-primary)]"
               >
-                Blog
-              </Link>
+                About Me
+              </a>
             </li>
             <li className="mb-6">
-              <Link
-                to="/projects"
+              <a
+                href="#projects"
                 onClick={handleLinkClick}
                 className="text-3xl font-medium text-[var(--text-primary)] hover:text-[var(--accent-primary)]"
               >
                 Projects
-              </Link>
+              </a>
             </li>
             <li className="mb-6">
-              <Link
-                to="/uses"
+              <a
+                href="#skills"
                 onClick={handleLinkClick}
                 className="text-3xl font-medium text-[var(--text-primary)] hover:text-[var(--accent-primary)]"
               >
-                Uses
-              </Link>
+                Skills
+              </a>
             </li>
             <li className="mb-6">
               <Link
@@ -188,7 +186,7 @@ const Navbar: React.FC = () => {
             onClick={handleLogoClick}
             className="font-medium text-xl text-[var(--text-primary)] flex items-center"
           >
-            <Logo />
+            <span className="text-[var(--text-primary)] font-bold text-xl">VK</span>
             <span className="text-[var(--accent-primary)] font-bold text-3xl">.</span>
           </Link>
 
@@ -204,27 +202,35 @@ const Navbar: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/blogs"
+                <a
+                  href="#about"
                   className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
                 >
-                  Blog
-                </Link>
+                  About Me
+                </a>
               </li>
               <li>
-                <Link
-                  to="/projects"
+                <a
+                  href="#projects"
                   className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
                 >
                   Projects
-                </Link>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#skills"
+                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
+                >
+                  Skills
+                </a>
               </li>
               <li>
                 <Link
-                  to="/uses"
+                  to="/socials"
                   className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
                 >
-                  Uses
+                  Contact
                 </Link>
               </li>
             </ul>

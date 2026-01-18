@@ -5,8 +5,6 @@ import {
   TwitterIcon,
   LinkedInIcon,
   MailIcon,
-  InstagramIcon,
-  DiscordIcon,
 } from './icons/index'
 
 interface SocialIconsProps {
@@ -14,7 +12,7 @@ interface SocialIconsProps {
   size?: 'sm' | 'md' | 'lg'
   variant?: 'default' | 'button' | 'minimal'
   showLabels?: boolean
-  platform?: 'github' | 'twitter' | 'linkedin' | 'mail' | 'instagram' | 'discord' | 'all'
+  platform?: 'github' | 'twitter' | 'linkedin' | 'mail' | 'all'
   className?: string
 }
 
@@ -51,7 +49,7 @@ const SocialIcons: React.FC<SocialIconsProps> = ({
 
   const platforms =
     platform === 'all'
-      ? ['github', 'twitter', 'linkedin', 'mail', 'instagram', 'discord']
+      ? ['github', 'twitter', 'linkedin', 'mail']
       : [platform]
 
   const iconWrapperClass = getIconWrapperClasses()
@@ -107,32 +105,6 @@ const SocialIcons: React.FC<SocialIconsProps> = ({
           {showLabels && <span>Email</span>}
         </a>
       )}
-
-      {/* {platforms.includes('instagram') && (
-        <a
-          href={socials.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${iconWrapperClass} social-icon-link`}
-          aria-label="Instagram Profile"
-        >
-          <InstagramIcon size={iconSize} className={color} />
-          {showLabels && <span>Instagram</span>}
-        </a>
-      )} */}
-
-      {/* {platforms.includes('discord') && (
-        <a
-          href={socials.discord}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${iconWrapperClass} social-icon-link`}
-          aria-label="Discord Profile"
-        >
-          <DiscordIcon size={iconSize} className={color} />
-          {showLabels && <span>Discord</span>}
-        </a>
-      )} */}
     </div>
   )
 }

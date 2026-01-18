@@ -9,11 +9,9 @@ const AboutMe: React.FC<AboutMeProps> = ({ className = '' }) => {
   const introSection =
     "Hey there! I'm Vasanth, a FullStack Engineer who lives for the 'how' behind the scenes. While I build across the stack, my core passion lies in engineering robust backend systems that power seamless user experiences. I specialize in crafting low-latency APIs and resilient infrastructures that can handle mission-critical workloads."
   const skillsSection =
-    "From designing distributed architectures to optimizing database performance, I focus on the scalability and reliability of software. I leverage tools like React, Node.js, and Python to bring complex systems to life, while exploring the potential of AI to build smarter applications."
-  const interestsSection =
-    "I'm fascinated by high-availability systems and seamless deployment workflows. Exploring how to maintain sub-second response times at scale is what keeps me coding."
-  const valuesSection =
-    "I believe that great engineering is about making the invisible parts of an app move perfectly. My goal is to develop platforms that are as resilient as they are intuitive."
+    "I leverage tools like Node.js and Python to bring systems to life, but my foundation is built on Data Structures and Algorithms. I don't just write code; I optimize it. Whether it's designing distributed architectures or fine-tuning database queries, I use DSA principles to ensure every solution is scalable, efficient, and performance-ready."
+  const interestsSection = ""
+  const valuesSection = ""
 
   useEffect(() => {
     const initAnimations = async () => {
@@ -71,7 +69,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ className = '' }) => {
               })
 
               gsap.to('.education-highlight', {
-                opacity: 0.15,
+                opacity: 0.5,
                 scale: 1,
                 duration: 0.7,
                 delay: index * 0.1 + 0.3,
@@ -88,76 +86,106 @@ const AboutMe: React.FC<AboutMeProps> = ({ className = '' }) => {
 
   return (
     <div className={`about-me-container relative ${className}`}>
-      <div className="border border-[var(--border-color)] p-4 sm:p-6 md:p-12 relative about-title-section">
+      <div className="border border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative about-content-wrapper bg-[var(--card-bg)]/30 backdrop-blur-sm">
         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
-        <Badge size="sm" className="mb-4">
-          <span className="text-xs font-bold uppercase">About Me</span>
-        </Badge>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold about-title">
-          My Story
-        </h2>
-      </div>
 
-      <div className="border border-[var(--border-color)] border-t-0 p-4 sm:p-6 md:p-12 about-content-section">
-        <div className="space-y-6 bio-wrapper">
-          <p className="text-sm sm:text-md md:text-lg text-[var(--text-secondary)] about-bio">
-            {introSection}
-          </p>
-          <p className="text-sm sm:text-md md:text-lg text-[var(--text-secondary)] about-bio">
-            {skillsSection}
-          </p>
-          <p className="text-sm sm:text-md md:text-lg text-[var(--text-secondary)] about-bio">
-            {interestsSection}
-          </p>
-          <p className="text-sm sm:text-md md:text-lg text-[var(--text-secondary)] about-bio">
-            {valuesSection}
-          </p>
-        </div>
-      </div>
-
-      <div className="border border-[var(--border-color)] border-t-0 p-4 sm:p-6 md:p-12 about-education-section">
-        <div className="flex items-center gap-2 mb-6">
-          <Badge size="sm">
-            <span className="text-xs font-bold uppercase">Education</span>
+        {/* Header */}
+        <div className="about-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dashed">
+          <Badge size="sm" className="w-fit">
+            <span className="text-xs font-bold uppercase">About Me</span>
           </Badge>
+          <h2 className="text-2xl sm:text-3xl font-semibold about-title leading-none">
+            Behind the Code
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-          <div className="md:col-span-3 education-content">
-            <h3 className="text-xl sm:text-2xl font-medium education-title">
-              B.Eng in Computer Science with AI Specialization
-            </h3>
-            <p className="text-sm sm:text-base mt-2 text-[var(--text-secondary)] education-period">
-              Sathyabama University, Chennai, Tamil Nadu · 2020 - 2024
+        {/* Bio Section */}
+        <div className="about-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dashed">
+          <div className="space-y-3 bio-wrapper">
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+              {introSection}
             </p>
-            <p className="text-sm sm:text-base mt-4 education-desc text-[var(--text-secondary)]">
-              Diving deeper into the "why" behind code while building real projects. I'm
-              especially into algorithms and data structures—the secret recipes that make
-              good software great!
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+              {skillsSection}
             </p>
-          </div>
-          <div className="md:col-span-2 flex items-center justify-center md:justify-end education-visual">
-            <span className="text-6xl sm:text-7xl font-bold text-[var(--accent-primary)] opacity-[0.15] education-highlight">
-              B.Eng
-            </span>
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+              {interestsSection}
+            </p>
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+              {valuesSection}
+            </p>
           </div>
         </div>
-      </div>
 
-      <div className="border border-[var(--border-color)] border-t-0 px-4 sm:px-6 md:px-10 p-4 sm:py-6 flex flex-col items-start gap-4 about-cta-section">
-        <h3 className="text-xl font-medium">Ready to Build Something Amazing?</h3>
-        <p className="text-sm sm:text-base text-[var(--text-secondary)]">
-          Whether it's a bold startup idea or a complex engineering challenge — I'm all ears. Let's turn your vision into reality.
-        </p>
-        <a
-          href="mailto:vasantkr97@gmail.com"
-          className="inline-flex items-center justify-center px-6 py-3 mt-2 border border-[var(--border-color)] hover:bg-[var(--accent-primary)] hover:text-white transition-colors"
-        >
-          Say Hello 👋
-        </a>
+        {/* Education Section */}
+        <div className="about-education-section mb-5 pb-5 border-b border-[var(--border-color)] border-dashed">
+          <div className="flex items-center gap-2 mb-4">
+            <Badge size="sm">
+              <span className="text-xs font-bold uppercase">Education</span>
+            </Badge>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+            <div className="md:col-span-3 education-content">
+              <h3 className="text-xl sm:text-2xl font-medium education-title">
+                B.Eng in Computer Science with AI Specialization
+              </h3>
+              <p className="text-sm sm:text-base mt-2 text-[var(--text-secondary)] education-period">
+                Sathyabama University, Chennai, Tamil Nadu · 2020 - 2024
+              </p>
+              <p className="text-sm sm:text-base mt-3 education-desc text-[var(--text-secondary)]">
+                Diving deeper into the "why" behind code while building real projects. I'm
+                especially into algorithms and data structures—the secret recipes that make
+                good software great!
+              </p>
+            </div>
+            <div className="md:col-span-2 flex items-center justify-center md:justify-end education-visual">
+              <span className="text-6xl sm:text-7xl font-bold text-white opacity-[0.4] education-highlight">
+                B.Eng
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="about-cta-section">
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="mailto:vasantkr97@gmail.com"
+              className="flex items-center gap-2 px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 text-sm font-medium"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Say Hello</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/vasantkr97"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 text-sm font-medium"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              <span>Connect</span>
+            </a>
+            <a
+              href="https://github.com/vasantkr97"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 text-sm font-medium"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              <span>Let's Talk Tech</span>
+            </a>
+          </div>
+        </div>
       </div>
       <div className="size-4 bg-[var(--border-color)] absolute -bottom-2 -right-2 z-10"></div>
-
       <style>{`
         .about-me-container {
           perspective: 1000px;

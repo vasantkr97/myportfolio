@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import Logo from '../components/Logo'
 
 const ComingSoon: React.FC = () => {
     return (
@@ -12,7 +11,10 @@ const ComingSoon: React.FC = () => {
             </Helmet>
 
             <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[var(--bg-primary)]">
-                <Logo size="lg" className="mb-8" />
+                <div className="mb-8 text-4xl font-bold">
+                    <span className="text-[var(--text-primary)]">VK</span>
+                    <span className="text-[var(--accent-primary)]">.</span>
+                </div>
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-center">
                     Coming Soon
@@ -25,7 +27,7 @@ const ComingSoon: React.FC = () => {
                 <div className="flex gap-4">
                     <Link
                         to="/"
-                        className="px-6 py-3 bg-[var(--accent-primary)] text-white font-medium hover:opacity-90 transition-opacity"
+                        className="px-6 py-3 bg-[var(--accent-primary)] text-black font-medium hover:opacity-90 transition-opacity"
                     >
                         Go Home
                     </Link>

@@ -30,24 +30,24 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
     const [errorMessage, setErrorMessage] = useState('')
     const [totalContributions, setTotalContributions] = useState(0)
 
-    // White/gray gradient like the reference image
+    // Use CSS variables for theme-aware colors
     const contributionLevels = [
         'transparent', // Unused (0 is handled separately)
-        'rgba(255, 255, 255, 0.25)',  // Level 1 - lighter
-        'rgba(255, 255, 255, 0.45)',  // Level 2
-        'rgba(255, 255, 255, 0.65)',  // Level 3
-        'rgba(255, 255, 255, 0.90)',  // Level 4 - brightest white
+        'var(--github-activity-level1)',
+        'var(--github-activity-level4)',
+        'var(--github-activity-level8)',
+        'var(--github-activity-level12)',
     ]
 
-    const backgroundLevel = 'rgba(85, 85, 85, 0.3)'
+    const backgroundLevel = 'var(--github-activity-level0)'
 
     const processContributionData = (contributions: ContributionDay[]) => {
         const result: { level: number; count: number; date: string }[][] = []
-        
+
         // Create a lookup map from the API contributions
         const contributionMap = new Map<string, { level: number; count: number }>()
         let total = 0
-        
+
         for (const contribution of contributions) {
             contributionMap.set(contribution.date, {
                 level: contribution.level,
@@ -55,22 +55,22 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
             })
             total += contribution.count
         }
-        
+
         setTotalContributions(total)
 
         // Calculate date range: from today going back 'weeks' number of weeks
         const today = new Date()
         today.setHours(0, 0, 0, 0)
-        
+
         // Find the end of the current week (Saturday)
         const currentDayOfWeek = today.getDay() // 0 = Sunday, 6 = Saturday
         const endOfWeek = new Date(today)
         endOfWeek.setDate(today.getDate() + (6 - currentDayOfWeek))
-        
+
         // Start from the beginning of the date range
         const startDate = new Date(endOfWeek)
         startDate.setDate(endOfWeek.getDate() - (weeks * 7) + 1)
-        
+
         // Adjust startDate to the previous Sunday if it's not already a Sunday
         const startDayOfWeek = startDate.getDay()
         if (startDayOfWeek !== 0) {
@@ -80,32 +80,32 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
         // Build weeks from startDate to endOfWeek
         let currentWeek: { level: number; count: number; date: string }[] = []
         const currentDate = new Date(startDate)
-        
+
         while (currentDate <= endOfWeek) {
             const year = currentDate.getFullYear()
             const month = String(currentDate.getMonth() + 1).padStart(2, '0')
             const day = String(currentDate.getDate()).padStart(2, '0')
             const dateStr = `${year}-${month}-${day}`
-            
+
             // Look up this date in our contribution map
             const contribData = contributionMap.get(dateStr)
-            
+
             currentWeek.push({
                 level: contribData ? contribData.level : 0,
                 count: contribData ? contribData.count : 0,
                 date: dateStr,
             })
-            
+
             // If we've completed a week (7 days), push it and start a new week
             if (currentWeek.length === 7) {
                 result.push([...currentWeek])
                 currentWeek = []
             }
-            
+
             // Move to next day
             currentDate.setDate(currentDate.getDate() + 1)
         }
-        
+
         // Handle any remaining days in the last partial week
         if (currentWeek.length > 0) {
             result.push(currentWeek)
@@ -139,7 +139,7 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
                 )
                 if (eventsResponse.ok) {
                     const events = await eventsResponse.json()
-                    
+
                     // Count events per day
                     const eventCounts = new Map<string, number>()
                     for (const event of events) {
@@ -148,13 +148,13 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
                             eventCounts.set(date, (eventCounts.get(date) || 0) + 1)
                         }
                     }
-                    
+
                     // Merge with contributions - use higher of the two counts
                     const contributionMap = new Map<string, { count: number; level: number }>()
                     for (const contrib of contributions) {
                         contributionMap.set(contrib.date, { count: contrib.count, level: contrib.level })
                     }
-                    
+
                     // Update with event counts if higher
                     for (const [date, eventCount] of eventCounts) {
                         const existing = contributionMap.get(date)
@@ -165,11 +165,11 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
                             if (eventCount >= 3) level = 2
                             if (eventCount >= 5) level = 3
                             if (eventCount >= 8) level = 4
-                            
+
                             contributionMap.set(date, { count: eventCount, level })
                         }
                     }
-                    
+
                     // Convert back to array
                     contributions = Array.from(contributionMap.entries()).map(([date, data]) => ({
                         date,
@@ -185,7 +185,7 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
                 const processedData = processContributionData(contributions)
                 setActivityData(processedData)
             }
-            
+
             setLoading(false)
         } catch (err) {
             console.error('Error fetching GitHub data:', err)
@@ -212,21 +212,109 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
     // Listen to container resize
     useEffect(() => {
         calculateWeeks()
-        
+
         const resizeObserver = new ResizeObserver(() => {
             calculateWeeks()
         })
-        
+
         if (containerRef.current) {
             resizeObserver.observe(containerRef.current)
         }
-        
+
         return () => resizeObserver.disconnect()
     }, [calculateWeeks])
 
     // Fetch data when weeks changes
     useEffect(() => {
-        fetchGitHubContributions()
+        const abortController = new AbortController()
+
+        const fetchData = async () => {
+            try {
+                setLoading(true)
+                setError(false)
+
+                // Fetch from third-party contributions API
+                const response = await fetch(
+                    `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
+                    { signal: abortController.signal }
+                )
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch data: ${response.status}`)
+                }
+
+                const data = await response.json()
+                let contributions = data.contributions || []
+
+                // Also fetch recent events from GitHub's official Events API
+                try {
+                    const eventsResponse = await fetch(
+                        `https://api.github.com/users/${username}/events/public?per_page=100`,
+                        { signal: abortController.signal }
+                    )
+                    if (eventsResponse.ok) {
+                        const events = await eventsResponse.json()
+
+                        const eventCounts = new Map<string, number>()
+                        for (const event of events) {
+                            const date = event.created_at?.split('T')[0]
+                            if (date) {
+                                eventCounts.set(date, (eventCounts.get(date) || 0) + 1)
+                            }
+                        }
+
+                        const contributionMap = new Map<string, { count: number; level: number }>()
+                        for (const contrib of contributions) {
+                            contributionMap.set(contrib.date, { count: contrib.count, level: contrib.level })
+                        }
+
+                        for (const [date, eventCount] of eventCounts) {
+                            const existing = contributionMap.get(date)
+                            if (!existing || eventCount > existing.count) {
+                                let level = 0
+                                if (eventCount >= 1) level = 1
+                                if (eventCount >= 3) level = 2
+                                if (eventCount >= 5) level = 3
+                                if (eventCount >= 8) level = 4
+
+                                contributionMap.set(date, { count: eventCount, level })
+                            }
+                        }
+
+                        contributions = Array.from(contributionMap.entries()).map(([date, data]) => ({
+                            date,
+                            count: data.count,
+                            level: data.level,
+                        }))
+                    }
+                } catch (eventsErr) {
+                    if ((eventsErr as Error).name !== 'AbortError') {
+                        console.log('Could not fetch GitHub events:', eventsErr)
+                    }
+                }
+
+                if (contributions.length > 0) {
+                    const processedData = processContributionData(contributions)
+                    setActivityData(processedData)
+                }
+
+                setLoading(false)
+            } catch (err) {
+                if ((err as Error).name === 'AbortError') {
+                    return // Request was cancelled, don't update state
+                }
+                console.error('Error fetching GitHub data:', err)
+                setError(true)
+                setErrorMessage((err as Error).message || 'Failed to load GitHub data')
+                setLoading(false)
+            }
+        }
+
+        fetchData()
+
+        return () => {
+            abortController.abort()
+        }
     }, [username, weeks])
 
     return (
@@ -305,7 +393,7 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
                                 })
                             })()}
                         </div>
-                        
+
                         {/* Contribution Grid */}
                         <div
                             className="activity-graph flex flex-row flex-nowrap gap-[2px]"
@@ -334,20 +422,20 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
                                                     backgroundColor: day.level === 0 ? backgroundLevel : contributionLevels[day.level],
                                                 }}
                                             />
-                                            
+
                                             {/* Custom Tooltip */}
                                             {day.date && (
                                                 <div className="tooltip-container absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none">
                                                     <div className="relative bg-gray-900 text-white text-xs px-3 py-2 rounded-lg shadow-xl border border-white/10 whitespace-nowrap">
                                                         <div className="font-semibold text-center">
-                                                            {day.count === 0 ? 'No contributions' : 
-                                                             day.count === 1 ? '1 contribution' : 
-                                                             `${day.count} contributions`}
+                                                            {day.count === 0 ? 'No contributions' :
+                                                                day.count === 1 ? '1 contribution' :
+                                                                    `${day.count} contributions`}
                                                         </div>
                                                         <div className="text-gray-400 text-[10px] text-center mt-0.5">
-                                                            {new Date(day.date).toLocaleDateString('en-US', { 
+                                                            {new Date(day.date).toLocaleDateString('en-US', {
                                                                 weekday: 'short',
-                                                                month: 'short', 
+                                                                month: 'short',
                                                                 day: 'numeric',
                                                                 year: 'numeric'
                                                             })}

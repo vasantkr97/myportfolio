@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import Badge from './Badge'
-import DiscordStatusCompact from './DiscordStatusCompact'
 
 const skillIcons = [
     { name: 'React', icon: '⚛️' },
@@ -131,13 +130,6 @@ const Bento: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Discord Activity Card */}
-                    <div className="bento-item bento-discord bento-scroll-reveal min-h-[200px] border border-[var(--border-color)] p-4 flex flex-col justify-center">
-                        <Badge size="sm" className="mb-4">
-                            <span className="uppercase text-xs">Discord Status</span>
-                        </Badge>
-                        <DiscordStatusCompact userId="743173584935190620" />
-                    </div>
                 </div>
             </div>
 

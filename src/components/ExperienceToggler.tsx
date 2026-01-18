@@ -17,23 +17,12 @@ const ExperienceToggler: React.FC = () => {
   }
 
   return (
-    <div className="w-[95%] sm:w-[90%] mx-auto mt-6 sm:mt-8">
-      <div className="experience-card relative overflow-hidden border border-[var(--border-color)] bg-[var(--card-bg)] group transition-all duration-500">
-        
-        {/* Status indicator */}
-        <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2.5 w-2.5">
-              {/* <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-primary)] opacity-75"></span> */}
-              {/* <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--accent-primary)]"></span> */}
-            </span>
-            {/* <span className="text-xs text-[var(--accent-primary)] font-medium tracking-wide">AVAILABLE</span> */}
-          </div>
-        </div>
+    <div className="w-full">
+      <div className="relative group transition-all duration-500">
 
-        <div className="p-6 sm:p-8 md:p-10">
+        <div className="">
           {/* Duration badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-full mb-3">
             <svg className="w-3.5 h-3.5 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
@@ -41,13 +30,13 @@ const ExperienceToggler: React.FC = () => {
           </div>
 
           {/* Main content */}
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-8">
             {/* Left side - Title and description */}
             <div className="flex-1">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2 transition-colors">
+              <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[var(--text-primary)] mb-1 transition-colors">
                 {experience.title}
               </h2>
-              <p className="text-sm sm:text-base text-[var(--accent-primary)] font-medium mb-4">
+              <p className="text-sm sm:text-base text-[var(--text-secondary)] font-medium mb-3">
                 {experience.role} • {experience.company}
               </p>
               <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed max-w-2xl">
@@ -74,19 +63,10 @@ const ExperienceToggler: React.FC = () => {
           </div>
 
           {/* Bottom section with CTA */}
-          <div className="mt-8 pt-6 border-t border-[var(--border-color)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
+          <div className="mt-4 pt-3 border-t border-[var(--border-color)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p className="text-[10px] sm:text-xs text-[var(--text-secondary)]">
               Open for new opportunities and collaborations
             </p>
-            {/* <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--accent-primary)] text-white text-sm font-medium rounded hover:bg-opacity-90 transition-all group/btn"
-            >
-              <span>Let's Work Together</span>
-              <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a> */}
           </div>
         </div>
       </div>

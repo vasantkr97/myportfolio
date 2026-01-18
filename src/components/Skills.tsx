@@ -19,8 +19,8 @@ const icons = {
   html: <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" className="w-4 h-4" />,
   css: <img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3" className="w-4 h-4" />,
   javascript: <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" className="w-4 h-4" />,
-  express: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" className="w-4 h-4" />,
-  websocket: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="WebSocket" className="w-4 h-4" />,
+  express: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" className="w-4 h-4" style={{ filter: 'invert(1) brightness(2)' }} />,
+  websocket: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="WebSocket" className="w-4 h-4" style={{ filter: 'invert(1) brightness(2)' }} />,
   redis: <img src="https://cdn.simpleicons.org/redis/DC382D" alt="Redis" className="w-4 h-4" />,
   postgresql: <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" className="w-4 h-4" />,
   prisma: <img src="https://cdn.simpleicons.org/prisma/2D3748" alt="Prisma" className="w-4 h-4" />,
@@ -29,10 +29,11 @@ const icons = {
   claude: <img src="/claude-color.svg" alt="Claude" className="w-4 h-4" />,
   gemini: <img src="/gemini-color.svg" alt="Gemini" className="w-4 h-4" />,
   openai: <img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI" className="w-4 h-4" />,
-  nextjs: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-4 h-4" />,
+  nextjs: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-4 h-4" style={{ filter: 'invert(1) brightness(2)' }} />,
   vscode: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="w-4 h-4" />,
   git: <img src="https://cdn.simpleicons.org/git/F05032" alt="Git" className="w-4 h-4" />,
   vercel: <img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel" className="w-4 h-4" />,
+  dsa: <img src="https://cdn.simpleicons.org/leetcode/FFA116" alt="DSA" className="w-4 h-4" />,
 }
 
 const skillCategories = [
@@ -46,10 +47,10 @@ const skillCategories = [
       { name: "Redis", icon: icons.redis },
       { name: 'Python', icon: icons.python },
       { name: 'FastAPI', icon: icons.fastapi },
-      { name: 'NestJS', icon: icons.nestjs },
       { name: 'MongoDB', icon: icons.mongodb },
       { name: "PostgreSQL", icon: icons.postgresql },
       { name: "Prisma", icon: icons.prisma },
+      { name: "DSA", icon: icons.dsa },
     ],
   },
   {
@@ -62,7 +63,7 @@ const skillCategories = [
     ],
   },
   {
-    title: 'AI & Dev Tools',
+    title: 'Dev Tools',
     skills: [
       { name: 'VS Code', icon: icons.vscode },
       { name: 'Git', icon: icons.git },
@@ -154,52 +155,58 @@ const Skills: React.FC<SkillsProps> = ({ className = '' }) => {
 
   return (
     <div className={`skills-container relative ${className}`}>
-      <div className="border border-[var(--border-color)] p-4 sm:p-6 md:p-12 relative skills-title-section">
+      <div className="border border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative skills-content-wrapper bg-[var(--card-bg)]/30 backdrop-blur-sm">
         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
-        <Badge size="sm" className="mb-4">
-          <span className="text-xs font-bold uppercase">Technical Skills</span>
-        </Badge>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold skills-title">
-          My Toolkit
-        </h2>
-      </div>
 
-      <div className="border border-[var(--border-color)] border-t-0 p-4 sm:p-6 md:p-12 skills-content-section">
-        <div className="space-y-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="skill-category" data-category={categoryIndex}>
-              <h3 className="text-lg font-semibold mb-4 category-title text-[var(--text-primary)]">
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-6 items-center">
-                {category.skills.map((skill, skillIndex) => (
-                  <div
-                    key={skillIndex}
-                    className="skill-pill inline-flex items-center gap-2 px-4 py-2 border border-[var(--border-color)] text-sm font-medium hover:bg-[var(--accent-primary)] hover:text-white transition-colors cursor-pointer"
-                    data-skill={skillIndex}
-                  >
-                    <span className="skill-icon">{skill.icon}</span>
-                    <span className="skill-name">{skill.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+        {/* Header */}
+        <div className="skills-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dashed">
+          <Badge size="sm" className="w-fit">
+            <span className="text-xs font-bold uppercase">Technical Skills</span>
+          </Badge>
+          <h2 className="text-2xl sm:text-3xl font-semibold skills-title leading-none">
+            My Toolkit
+          </h2>
         </div>
-      </div>
 
-      <div className="border border-[var(--border-color)] border-t-0 px-4 sm:px-6 md:px-10 p-4 sm:py-6 flex flex-col items-start gap-4 skills-cta-section">
-        <h3 className="text-xl font-medium">Always Learning, Always Growing</h3>
-        <p className="text-sm sm:text-base text-[var(--text-secondary)]">
-          Technology evolves fast, and so do I! Currently exploring new AI frameworks and
-          diving deeper into system design. What's next on your tech wishlist?
-        </p>
-        <a
-          href="mailto:vasantkr97@gmail.com"
-          className="inline-flex items-center justify-center px-6 py-3 mt-2 border border-[var(--border-color)] hover:bg-[var(--accent-primary)] hover:text-white transition-colors"
-        >
-          Let's Talk Tech 💻
-        </a>
+        {/* Skills Grid */}
+        <div className="skills-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dashed">
+          <div className="space-y-4">
+            {skillCategories.map((category, categoryIndex) => (
+              <div key={categoryIndex} className="skill-category" data-category={categoryIndex}>
+                <h3 className="text-lg font-semibold mb-2.5 category-title text-[var(--text-primary)]">
+                  {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-2 items-center">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skillIndex}
+                      className="skill-pill inline-flex items-center gap-1.5 px-2 py-1 border border-[var(--border-color)] rounded-lg text-xs font-medium hover:bg-[var(--accent-primary)] hover:text-black transition-colors cursor-pointer"
+                      data-skill={skillIndex}
+                    >
+                      <span className="skill-icon">{skill.icon}</span>
+                      <span>{skill.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="skills-cta-section flex flex-col items-start gap-2">
+          <h3 className="text-lg font-semibold">Always Learning, Always Growing</h3>
+          <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
+            Technology evolves fast, and so do I! Currently exploring new AI frameworks and
+            edge computing solutions.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 text-xs font-medium"
+          >
+            Let's Talk Tech
+          </a>
+        </div>
       </div>
       <div className="size-4 bg-[var(--border-color)] absolute -bottom-2 -right-2 z-10"></div>
 

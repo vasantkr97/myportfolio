@@ -6,7 +6,6 @@ import Experience from '../components/Experience'
 import AboutMe from '../components/AboutMe'
 import Skills from '../components/Skills'
 import Projects from '../components/Projects'
-import BlogSection from '../components/BlogSection'
 import Footer from '../components/Footer'
 import Badge from '../components/Badge'
 import LiveClock from '../components/LiveClock'
@@ -142,12 +141,9 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
                 <Navbar />
 
                 {/* Hero Section */}
-                <div className="w-[95%] xs:w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[70%] 2xl:w-[65%] relative z-20 mx-auto mt-[120px] md:mt-[160px] lg:mt-[220px] mb-32 md:mb-40 lg:mb-48">
+                <div className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] relative z-20 mx-auto mt-[80px] md:mt-[100px] lg:mt-[140px] mb-16 md:mb-20 lg:mb-24">
                     <div className="flex flex-row justify-between items-center gap-2 mb-4 px-2 sm:px-8 hero-top-badges">
-                        <Badge text="">
-                            <LiveClock />
-                        </Badge>
-                        <Badge text="En / Te /Hi" />
+                        {/* <Badge text="En / Te /Hi" /> */}
                     </div>
                     <div
                         className="main-border-container bg-[var(--bg-secondary)] relative w-full"
@@ -161,36 +157,36 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
                             <HeroCard />
                         </div>
                     </div>
-                    <div className="github-activity relative mt-12 mb-20 border border-[var(--border-color)] p-4 sm:p-6 md:p-8">
+                    <div className="github-activity relative mt-6 mb-8 border border-[var(--border-color)] p-3 sm:p-5 md:p-6">
                         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
                         <GitHubActivity username="vasantkr97" title="GITHUB ACTIVITY" />
                     </div>
                 </div>
 
                 {/* About Me Section */}
-                <div className="w-[95%] xs:w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[70%] 2xl:w-[65%] mx-auto mb-40 md:mb-56 lg:mb-64">
+                <div id="about" className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
                     <AboutMe />
                 </div>
 
-                {/* Skills Section */}
-                <div className="w-[95%] xs:w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[70%] 2xl:w-[65%] mx-auto mb-40 md:mb-56 lg:mb-64">
-                    <Skills />
-                </div>
-
                 {/* Projects Section */}
-                <div className="w-[95%] xs:w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[70%] 2xl:w-[65%] mx-auto mb-40 md:mb-56 lg:mb-64">
+                <div className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
                     <Projects />
                 </div>
 
+                {/* Skills Section */}
+                <div id="skills" className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
+                    <Skills />
+                </div>
+
                 {/* Experience Section */}
-                <div className="w-[95%] xs:w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[70%] 2xl:w-[65%] mx-auto mb-40 md:mb-56 lg:mb-64">
+                <div className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
                     <Experience />
                 </div>
 
-                {/* Blog Section */}
-                <div className="mb-40 md:mb-48 lg:mb-56">
+                {/* Blog Section - Removed for now */}
+                {/* <div className="mb-40 md:mb-48 lg:mb-56">
                     <BlogSection />
-                </div>
+                </div> */}
 
                 <Footer />
             </div>

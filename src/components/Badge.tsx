@@ -19,7 +19,7 @@ const Badge: React.FC<BadgeProps> = ({ text = '', size = 'md', className = '', c
 
   return (
     <div
-      className={`badge bg-[var(--card-bg)] text-[var(--text-secondary)] border border-[var(--border-color)] font-semibold w-fit flex items-center ${classes} ${className}`}
+      className={`badge bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border-color)] rounded-md font-medium w-fit flex items-center hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 ${classes} ${className}`}
     >
       {children}
       {text}

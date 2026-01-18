@@ -23,6 +23,7 @@ export const projects: Project[] = [
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "vxness-2.0",
+    demo: "#",
     technologies: [
       "TypeScript",
       "React 19",
@@ -46,6 +47,7 @@ export const projects: Project[] = [
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "Orch8",
+    demo: "#",
     technologies: [
       "TypeScript",
       "React",
@@ -68,6 +70,7 @@ export const projects: Project[] = [
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "codev-cli",
+    demo: "#",
     technologies: [
       "TypeScript",
       "Node.js",
