@@ -94,7 +94,7 @@ const HeroCard: React.FC = () => {
           <div className="hero-location-row flex flex-wrap items-center gap-2 text-sm">
             <span className="inline-flex items-center gap-1.5 border border-[var(--border-color)] rounded px-3 py-1 text-[var(--text-secondary)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]"></span>
-              <span className="font-medium text-xs">Bangalore, India</span>
+              <span className="font-medium text-xs">Bengaluru, India</span>
             </span>
             <span className="inline-flex items-center gap-1.5 border border-[var(--border-color)] rounded px-3 py-1 text-[var(--text-secondary)]">
               <span className="font-medium text-xs">currently @Super30</span>
@@ -113,7 +113,7 @@ const HeroCard: React.FC = () => {
 
           {/* Tech Stack Line */}
           <div className="hero-tech-line flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm sm:text-base text-[var(--text-secondary)]">
-            <TechBadge icon="react" label="React" />
+            <TechBadge icon="nodejs" label="Node.js" />
             <span>,</span>
             <TechBadge icon="typescript" label="TypeScript" />
             <span>,</span>
@@ -121,7 +121,7 @@ const HeroCard: React.FC = () => {
             <span>,</span>
             <TechBadge icon="python" label="Python" />
             <span>, and</span>
-            <TechBadge icon="nodejs" label="Node.js" />
+            <TechBadge icon="react" label="React" />
             <span>, backed by structured data in</span>
             <TechBadge icon="postgresql" label="PostgreSQL" />
             <span>and</span>

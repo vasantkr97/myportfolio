@@ -163,13 +163,11 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
 
                       {/* Description */}
                       {project.description === 'Coming Soon' ? (
-                          <div className="relative w-full h-32 rounded-xl overflow-hidden bg-gray-900 border border-gray-700/50 shadow-lg shadow-gray-600/10 hover:shadow-gray-500/20 hover:border-gray-600 transition-all duration-300 mb-4 group/image">
-                              <div className="absolute inset-0 bg-black/10 group-hover/image:bg-transparent transition-all duration-300 z-10"></div>
-                              <img 
-                                  src="/comingSoon.png" 
-                                  alt="Coming Soon" 
-                                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                              />
+                        <div className="relative w-full py-6 rounded-xl border border-dashed border-gray-700/50 bg-gray-900/30 flex items-center justify-center group/coming-soon overflow-hidden mb-4">
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-800/10 to-transparent translate-x-[-100%] group-hover/coming-soon:translate-x-[100%] transition-transform duration-1000"></div>
+                              <span className="text-[var(--text-secondary)] font-mono text-sm tracking-widest uppercase group-hover/coming-soon:text-[var(--accent-primary)] transition-colors duration-300">
+                                  Coming Soon
+                              </span>
                           </div>
                       ) : (
                           <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-2 line-clamp-3">
