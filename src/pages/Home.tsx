@@ -9,7 +9,7 @@ import Projects from '../components/Projects'
 import Footer from '../components/Footer'
 import Badge from '../components/Badge'
 import LiveClock from '../components/LiveClock'
-import ThemeChanger from '../components/ThemeChanger'
+
 import GitHubActivity from '../components/GitHubActivity'
 
 interface HomeProps {
@@ -143,10 +143,10 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
                 {/* Hero Section */}
                 <div className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] relative z-20 mx-auto mt-[80px] md:mt-[100px] lg:mt-[140px] mb-16 md:mb-20 lg:mb-24">
                     <div className="flex flex-row justify-between items-center gap-2 mb-4 px-2 sm:px-8 hero-top-badges">
-                        {/* <Badge text="En / Te /Hi" /> */}
+
                     </div>
                     <div
-                        className="main-border-container bg-[var(--bg-secondary)] relative w-full"
+                        className="main-border-container bg-[var(--bg-secondary)] relative w-full rounded-xl overflow-hidden"
                         id="main-container"
                     >
                         <div className="animated-border border-right"></div>
@@ -157,7 +157,7 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
                             <HeroCard />
                         </div>
                     </div>
-                    <div className="github-activity relative mt-6 mb-8 border border-[var(--border-color)] p-3 sm:p-5 md:p-6">
+                    <div className="github-activity relative mt-6 mb-8 border border-dotted border-[var(--border-color)] p-3 sm:p-5 md:p-6 rounded-xl bg-[var(--card-bg)]">
                         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
                         <GitHubActivity username="vasantkr97" title="GITHUB ACTIVITY" />
                     </div>
@@ -184,19 +184,13 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
                 </div>
 
                 {/* Blog Section - Removed for now */}
-                {/* <div className="mb-40 md:mb-48 lg:mb-56">
-                    <BlogSection />
-                </div> */}
+
 
                 <Footer />
             </div>
 
             {/* Theme changer */}
-            <div className="sticky bottom-8 right-8 z-50">
-                <div className="flex justify-end sm:pr-8 pr-5">
-                    <ThemeChanger />
-                </div>
-            </div>
+
 
             <style>{`
         .main-border-container {
@@ -205,7 +199,7 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
 
         .animated-border {
           position: absolute;
-          background-color: var(--border-color);
+          /* background-color: var(--border-color); */
           z-index: 2;
           opacity: 0;
           visibility: hidden;
@@ -214,8 +208,9 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
         .border-right {
           top: 0;
           right: 0;
-          width: 1px;
+          width: 0px;
           height: 100%;
+          border-right: 1px dotted var(--border-color);
           transform-origin: bottom !important;
         }
 
@@ -223,15 +218,17 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
           bottom: 0;
           right: 0;
           width: 100%;
-          height: 1px;
+          height: 0px;
+          border-bottom: 1px dotted var(--border-color);
           transform-origin: right center !important;
         }
 
         .border-left {
           bottom: 0;
           left: 0;
-          width: 1px;
+          width: 0px;
           height: 100%;
+          border-left: 1px dotted var(--border-color);
           transform-origin: bottom !important;
         }
 

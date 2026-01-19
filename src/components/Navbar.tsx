@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import ThemeChanger from './ThemeChanger'
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -168,6 +169,9 @@ const Navbar: React.FC = () => {
                 Contact
               </Link>
             </li>
+             <li className="mb-6 flex">
+              <ThemeChanger variant="icon" />
+            </li>
           </ul>
           <div></div>
         </nav>
@@ -176,7 +180,7 @@ const Navbar: React.FC = () => {
       {/* Main Navigation Bar */}
       <nav
         id="main-navbar"
-        className="sticky top-0 left-0 right-0 z-50 bg-[var(--bg-secondary)] border-b border-[var(--border-color)] bg-opacity-80 backdrop-blur-sm h-16 ease-in-out transition-transform duration-300"
+        className="sticky top-0 left-0 right-0 z-50 bg-[var(--bg-secondary)] border-b border-dotted border-[var(--border-color)] bg-opacity-80 backdrop-blur-sm h-16 ease-in-out transition-transform duration-300"
         style={{ opacity: 0, transform: 'translateY(-20px)' }}
       >
         <div className="w-full max-w-7xl mx-auto px-4 xl:px-8 h-full flex items-center justify-between">
@@ -192,7 +196,7 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:ml-8">
-            <ul className="flex list-none gap-8 p-0 m-0">
+            <ul className="flex items-center list-none gap-8 p-0 m-0">
               <li>
                 <Link
                   to="/"
@@ -232,6 +236,9 @@ const Navbar: React.FC = () => {
                 >
                   Contact
                 </Link>
+              </li>
+              <li className="flex items-center">
+                 <ThemeChanger variant="icon" />
               </li>
             </ul>
           </div>

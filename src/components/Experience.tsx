@@ -41,10 +41,10 @@ const Experience: React.FC<ExperienceProps> = ({ title = 'VIBE JOURNEY:' }) => {
 
   return (
     <div className="experience-section relative experience-container" id="experience">
-      <div className="border border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative experience-content-wrapper bg-[var(--card-bg)]/30 backdrop-blur-sm">
+      <div className="border border-dotted border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative experience-content-wrapper bg-[var(--card-bg)] rounded-xl">
         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
 
-        <div className="experience-header mb-3 sm:mb-4 border-b border-[var(--border-color)] pb-3 sm:pb-4 border-dashed">
+        <div className="experience-header mb-3 sm:mb-4 border-b border-[var(--border-color)] pb-3 sm:pb-4 border-dotted">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-3">
             <Badge size="sm" className="w-fit">
               <span className="text-xs font-bold uppercase">Journey</span>

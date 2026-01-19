@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
     return (
         <footer className="footer-section w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 mt-8">
-            <div className="footer-content border border-[var(--border-color)] p-4 sm:p-5 text-center bg-[var(--card-bg)]/30 backdrop-blur-sm relative">
+            <div className="footer-content border border-dotted border-[var(--border-color)] p-4 sm:p-5 text-center bg-[var(--card-bg)] relative rounded-xl">
                 <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
                 <h2 className="text-2xl sm:text-3xl font-bold mb-2">Let's Connect</h2>
                 <p className="text-[var(--text-secondary)] mb-4 text-base sm:text-lg">

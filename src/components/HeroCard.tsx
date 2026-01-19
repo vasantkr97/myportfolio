@@ -70,17 +70,15 @@ const HeroCard: React.FC = () => {
   }, [])
 
   return (
-    <div ref={containerRef} className="hero-container border border-[var(--border-color)] p-3 sm:p-4 relative">
+    <div ref={containerRef} className="hero-container border border-dotted border-[var(--border-color)] p-3 sm:p-4 relative rounded-xl bg-[var(--card-bg)]">
       {/* Corner decorative element */}
-      <div className="absolute -top-2 -left-2 w-4 h-4 bg-[var(--border-color)]"></div>
+
 
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
         {/* Left Content */}
         <div className="flex-1 space-y-2">
           {/* Greeting */}
-          {/* <p className="hero-greeting text-[var(--text-secondary)] text-sm sm:text-base">
-            Hey It's me 👋
-          </p> */}
+
 
           {/* Name + Status Badge Row */}
           <div className="hero-name-row flex flex-wrap items-center gap-2">
@@ -89,16 +87,7 @@ const HeroCard: React.FC = () => {
             >
               Vasanth Kumar
             </h1>
-            {/* <a 
-              href="https://vxness.org" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-[var(--border-color)] rounded-full px-3 py-1 text-sm hover:border-[var(--accent-primary)] transition-colors"
-            >
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              <span className="text-[var(--accent-primary)]">Building vxness.org</span>
-              <span>🌐</span>
-            </a> */}
+
           </div>
 
           {/* Location & Status Badges */}
@@ -137,8 +126,7 @@ const HeroCard: React.FC = () => {
             <TechBadge icon="postgresql" label="PostgreSQL" />
             <span>and</span>
             <TechBadge icon="mongodb" label="MongoDB" />
-            <span>. I maintain efficient workflows via the</span>
-            <TechBadge icon="terminal" label="Terminal" />
+
             <span>.</span>
           </div>
 
@@ -207,9 +195,7 @@ const HeroCard: React.FC = () => {
             </div>
 
             {/* Ghost Emoji Sticker */}
-            {/* <div className="absolute -bottom-2 -right-2 w-10 h-10 sm:w-12 sm:h-12 bg-[var(--bg-primary)] border-2 border-[var(--border-color)] rounded-full flex items-center justify-center text-xl sm:text-2xl shadow-lg">
-              👻
-            </div> */}
+
           </div>
         </div>
       </div>

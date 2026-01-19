@@ -198,3 +198,7 @@ body {
     visibility: visible;
   }
 }
+
+.dark-theme .vercel-icon {
+  filter: invert(1);
+}

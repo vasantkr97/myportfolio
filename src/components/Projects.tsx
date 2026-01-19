@@ -103,10 +103,10 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
           {displayProjects.map((project, index) => (
             <div key={index} className="project-item w-full" data-index={index}>
               <div className="project-card-wrapper group w-full">
-                <div className="project-card w-full border border-dashed border-gray-700 hover:border-gray-500 overflow-hidden relative bg-[#0a0a0a] rounded-xl transition-all duration-300">
+                <div className="project-card w-full border border-dotted border-gray-700 hover:border-gray-500 overflow-hidden relative bg-[var(--card-bg)] rounded-xl transition-all duration-300">
                   <div className="project-card-content relative grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 p-4 md:p-5">
                     {/* Purple Glow Effect */}
-                    <div className="absolute top-10 left-10 w-1/3 h-2/3 bg-purple-600/20 blur-[100px] pointer-events-none rounded-full"></div>
+                    <div className="absolute top-10 left-10 w-1/3 h-2/3 bg-gray-600/20 blur-[100px] pointer-events-none rounded-full"></div>
 
                     {/* Left: Image Section */}
                     <div className="project-image-section relative z-10 w-full group perspective-1000 h-48 md:h-64 lg:h-full">
@@ -124,7 +124,7 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
                       {/* Header: Title & Buttons */}
                       <div className="flex flex-col xl:flex-row justify-between items-start gap-3 mb-2">
                         <div className="flex items-center gap-2">
-                          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                          <h3 className="text-xl md:text-2xl font-bold text-[var(--text-primary)] tracking-tight">
                             {project.projectPage ? (
                               <Link to={project.projectPage} className="hover:text-[var(--accent-primary)] transition-colors">
                                 {project.title}
@@ -133,11 +133,6 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
                               project.title
                             )}
                           </h3>
-                          {/* Visual styling lock icon to match reference */}
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                          </svg>
                         </div>
 
                         <div className="flex items-center gap-2">
@@ -170,18 +165,18 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
                       </div>
 
                       {/* Description */}
-                      <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                      <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4 line-clamp-3">
                         {project.description}
                       </p>
 
                       {/* Technologies */}
                       <div className="mt-auto">
-                        <h4 className="text-white text-lg font-bold mb-3">Technologies Used:</h4>
+                        <h4 className="text-[var(--text-primary)] text-lg font-bold mb-3">Technologies Used:</h4>
                         <div className="flex flex-wrap gap-3">
                           {project.tags.map((tag, tagIndex) => (
                             <span
                               key={tagIndex}
-                              className="inline-flex items-center px-2.5 py-1.5 border border-gray-800 bg-[#1a1a1a]/50 rounded-lg text-xs font-medium text-gray-400 hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 cursor-default"
+                              className="inline-flex items-center px-2.5 py-1.5 border border-gray-800 bg-[var(--code-bg)] rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 cursor-default"
                             >
                               {tag}
                             </span>

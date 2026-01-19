@@ -86,11 +86,11 @@ const AboutMe: React.FC<AboutMeProps> = ({ className = '' }) => {
 
   return (
     <div className={`about-me-container relative ${className}`}>
-      <div className="border border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative about-content-wrapper bg-[var(--card-bg)]/30 backdrop-blur-sm">
+      <div className="border border-dotted border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative about-content-wrapper bg-[var(--card-bg)] rounded-xl">
         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
 
         {/* Header */}
-        <div className="about-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dashed">
+        <div className="about-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dotted">
           <Badge size="sm" className="w-fit">
             <span className="text-xs font-bold uppercase">About Me</span>
           </Badge>
@@ -100,7 +100,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ className = '' }) => {
         </div>
 
         {/* Bio Section */}
-        <div className="about-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dashed">
+        <div className="about-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dotted">
           <div className="space-y-3 bio-wrapper">
             <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
               {introSection}
@@ -118,7 +118,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ className = '' }) => {
         </div>
 
         {/* Education Section */}
-        <div className="about-education-section mb-5 pb-5 border-b border-[var(--border-color)] border-dashed">
+        <div className="about-education-section mb-5 pb-5 border-b border-[var(--border-color)] border-dotted">
           <div className="flex items-center gap-2 mb-4">
             <Badge size="sm">
               <span className="text-xs font-bold uppercase">Education</span>

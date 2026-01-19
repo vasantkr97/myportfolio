@@ -32,7 +32,7 @@ const icons = {
   nextjs: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-4 h-4" style={{ filter: 'invert(1) brightness(2)' }} />,
   vscode: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="w-4 h-4" />,
   git: <img src="https://cdn.simpleicons.org/git/F05032" alt="Git" className="w-4 h-4" />,
-  vercel: <img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel" className="w-4 h-4" />,
+  vercel: <img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel" className="w-4 h-4 vercel-icon" />,
   dsa: <img src="https://cdn.simpleicons.org/leetcode/FFA116" alt="DSA" className="w-4 h-4" />,
 }
 
@@ -155,11 +155,11 @@ const Skills: React.FC<SkillsProps> = ({ className = '' }) => {
 
   return (
     <div className={`skills-container relative ${className}`}>
-      <div className="border border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative skills-content-wrapper bg-[var(--card-bg)]/30 backdrop-blur-sm">
+      <div className="border border-dotted border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative skills-content-wrapper bg-[var(--card-bg)] rounded-xl">
         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
 
         {/* Header */}
-        <div className="skills-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dashed">
+        <div className="skills-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dotted">
           <Badge size="sm" className="w-fit">
             <span className="text-xs font-bold uppercase">Technical Skills</span>
           </Badge>
@@ -169,7 +169,7 @@ const Skills: React.FC<SkillsProps> = ({ className = '' }) => {
         </div>
 
         {/* Skills Grid */}
-        <div className="skills-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dashed">
+        <div className="skills-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dotted">
           <div className="space-y-4">
             {skillCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="skill-category" data-category={categoryIndex}>
