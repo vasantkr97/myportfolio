@@ -11,15 +11,15 @@ const displayProjects = projects.map((project) => ({
   title: project.title,
   description: project.description,
   image: project.image,
-  tags: project.tags,
+
   status: project.status,
   projectPage: `/projects/${project.slug}`,
   github:
     project.githubOwner && project.githubRepo
       ? `https://github.com/${project.githubOwner}/${project.githubRepo}`
       : '#',
-  npm: project.npm,
-  demo: project.demo || '#',
+  liveUrl: project.liveUrl,
+  technologies: project.technologies,
 }))
 
 const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
@@ -136,20 +136,6 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
                         </div>
 
                         <div className="flex items-center gap-2">
-                          {project.demo && (
-                            <a
-                              href={project.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-1.5 px-3 py-1 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 text-xs font-semibold uppercase tracking-wider"
-                            >
-                              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <circle cx="12" cy="12" r="3"></circle>
-                              </svg>
-                              <span>Live</span>
-                            </a>
-                          )}
                           <a
                             href={project.github}
                             target="_blank"
@@ -161,22 +147,44 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
                             </svg>
                             GitHub
                           </a>
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 px-3 py-1 rounded-md border border-gray-700 bg-black/20 text-gray-300 text-xs font-medium hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                              Live
+                            </a>
+                          )}
                         </div>
                       </div>
 
                       {/* Description */}
-                      <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4 line-clamp-3">
-                        {project.description}
-                      </p>
+                      {project.description === 'Coming Soon' ? (
+                          <div className="relative w-full h-32 rounded-xl overflow-hidden bg-gray-900 border border-gray-700/50 shadow-lg shadow-gray-600/10 hover:shadow-gray-500/20 hover:border-gray-600 transition-all duration-300 mb-4 group/image">
+                              <div className="absolute inset-0 bg-black/10 group-hover/image:bg-transparent transition-all duration-300 z-10"></div>
+                              <img 
+                                  src="/comingSoon.png" 
+                                  alt="Coming Soon" 
+                                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                              />
+                          </div>
+                      ) : (
+                          <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-2 line-clamp-3">
+                              {project.description}
+                          </p>
+                      )}
 
                       {/* Technologies */}
                       <div className="mt-auto">
-                        <h4 className="text-[var(--text-primary)] text-lg font-bold mb-3">Technologies Used:</h4>
-                        <div className="flex flex-wrap gap-3">
-                          {project.tags.map((tag, tagIndex) => (
+                        <h4 className="text-[var(--text-primary)] text-sm font-bold mb-2">Technologies Used:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {project.technologies?.map((tag, tagIndex) => (
                             <span
                               key={tagIndex}
-                              className="inline-flex items-center px-2.5 py-1.5 border border-gray-800 bg-[var(--code-bg)] rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 cursor-default"
+                              className="inline-flex items-center px-1.5 py-1 border border-gray-800 bg-[var(--code-bg)] rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 cursor-default"
                             >
                               {tag}
                             </span>

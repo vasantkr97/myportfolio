@@ -3,11 +3,10 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  tags: string[];
   status: "Completed" | "In Development";
   githubOwner?: string;
   githubRepo?: string;
-  npm?: string;
+  liveUrl?: string;
   demo?: string;
   technologies?: string[];
 }
@@ -19,20 +18,19 @@ export const projects: Project[] = [
     description:
       "A high-performance cryptocurrency trading platform with real-time order matching, live market data streaming via WebSocket, and microservices architecture. Features in-memory order book, leverage trading, interactive TradingView-like charts, and production-ready Docker deployment.",
     image: "/Screenshot (1).png",
-    tags: ["TypeScript", "React", "Microservices"],
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "vxness-2.0",
-    demo: "#",
+    liveUrl: "#",
     technologies: [
       "TypeScript",
-      "React 19",
       "Node.js",
       "Express",
       "WebSocket",
-      "Redis Streams",
-      "PostgreSQL",
+      "Redis",
+      "Postgres",
       "Prisma",
+      "React",
       "Docker",
       "Turborepo",
     ],
@@ -43,21 +41,20 @@ export const projects: Project[] = [
     description:
       "A modern, open-source workflow automation platform for building intelligent, visual pipelines. Features AI-native Gemini integration, visual drag-and-drop editor, multiple trigger types (webhook, cron, manual), multi-channel messaging, secure credential vault, and detailed execution observability.",
     image: "/Screenshot (7).png",
-    tags: ["TypeScript", "React", "AI Automation"],
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "Orch8",
-    demo: "#",
+    liveUrl: "#",
     technologies: [
       "TypeScript",
+      "Node.js",
+      "Express",
       "React",
       "React Flow",
-      "Node.js",
+      "Turborepo",
       "Gemini AI",
       "PostgreSQL",
       "Docker",
-      "Resend",
-      "Telegram API",
     ],
   },
   {
@@ -66,10 +63,10 @@ export const projects: Project[] = [
     description:
       "An AI-powered CLI tool for developers to chat with intelligent agents and streamline coding projects. Features interactive chat with AI, tool calling capabilities, and agent mode for autonomous task execution.",
     image: "/image.png",
-    tags: ["TypeScript", "CLI", "AI"],
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "codev-cli",
+    liveUrl: "#",
     demo: "#",
     technologies: [
       "TypeScript",
@@ -78,6 +75,17 @@ export const projects: Project[] = [
       "AI SDK",
       "Gemini AI",
     ],
+  },
+  {
+    slug: "tiktok-trading",
+    title: "TikTok Trading",
+    description: "Coming Soon",
+    image: "/tapTrading.png",
+    status: "In Development",
+    githubOwner: "vasantkr97",
+    githubRepo: "tiktok-trading",
+    liveUrl: "#",
+    technologies: ["TypeScript", "Node.js", "Express", "React", "Docker"],
   },
 ];
 

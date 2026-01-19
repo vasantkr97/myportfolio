@@ -102,24 +102,15 @@ const ProjectPage: React.FC = () => {
                   View on GitHub
                 </a>
               )}
-              {project.npm && (
+              {project.liveUrl && (
                 <a
-                  href={project.npm}
+                  href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 border border-[var(--border-color)] hover:bg-[var(--accent-primary)] hover:text-white transition-colors"
+                  className="px-4 py-2 border border-[var(--border-color)] text-[var(--text-secondary)] hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300 flex items-center gap-2"
                 >
-                  View on NPM
-                </a>
-              )}
-              {project.demo && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 border border-[var(--border-color)] hover:bg-[var(--accent-primary)] hover:text-white transition-colors"
-                >
-                  View Demo
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                  Live View
                 </a>
               )}
             </div>
