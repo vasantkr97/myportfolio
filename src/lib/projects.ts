@@ -21,7 +21,7 @@ export const projects: Project[] = [
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "vxness-2.0",
-    liveUrl: "#",
+    liveUrl: "https://vxness.vasanth.site",
     technologies: [
       "TypeScript",
       "Node.js",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "Orch8",
-    liveUrl: "#",
+    liveUrl: "https://orch8.vasanth.site",
     technologies: [
       "TypeScript",
       "Node.js",
