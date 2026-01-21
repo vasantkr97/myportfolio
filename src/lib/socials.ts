@@ -3,6 +3,6 @@ export const socials = {
   github: "https://github.com/Vasantkr97",
   linkedIn: "https://www.linkedin.com/in/vasanth-maneri-651074355/",
   mail: "mailto:vasantkr97@gmail.com",
-  resume: "https://drive.google.com/file/d/1yRxMtyHoOGnj3LiKQxGvCyvHDjMuuxnv/view?usp=drive_link",
+  resume: "https://drive.google.com/file/d/1yRxMtyHoOGnj3LiKQxGvCyvHDjMuuxnv/view?usp=sharing",
   banner: "https://raw.githubusercontent.com/Vasantkr97/Vasantkr97/refs/heads/main/banner.png",
 };
