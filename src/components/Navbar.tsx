@@ -188,9 +188,9 @@ const Navbar: React.FC = () => {
             to="/"
             id="logo-link"
             onClick={handleLogoClick}
-            className="font-medium text-xl text-[var(--text-primary)] flex items-center"
+            className="font-medium text-xl text-[var(--text-primary)] flex items-center gap-2"
           >
-            <span className="text-[var(--text-primary)] font-bold text-xl">VK</span>
+            <img src="/pic12.png" alt="Vasanth Kumar" className="w-8 h-8 rounded-full object-cover border border-[var(--accent-primary)]" />
             <span className="text-[var(--accent-primary)] font-bold text-3xl">.</span>
           </Link>
 

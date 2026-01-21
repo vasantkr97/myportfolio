@@ -11,9 +11,9 @@ const ComingSoon: React.FC = () => {
             </Helmet>
 
             <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[var(--bg-primary)]">
-                <div className="mb-8 text-4xl font-bold">
-                    <span className="text-[var(--text-primary)]">VK</span>
-                    <span className="text-[var(--accent-primary)]">.</span>
+                <div className="mb-8 flex items-center gap-2">
+                    <img src="/pic12.png" alt="Vasanth Kumar" className="w-16 h-16 rounded-full object-cover border-2 border-[var(--accent-primary)]" />
+                    <span className="text-[var(--accent-primary)] text-4xl font-bold">.</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-center">

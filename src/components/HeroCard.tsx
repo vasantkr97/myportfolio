@@ -191,7 +191,7 @@ const HeroCard: React.FC = () => {
           <div className="relative">
             {/* Avatar Box */}
             <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">VK</span>
+              <img src="/pic12.png" alt="Vasanth Kumar" className="w-full h-full object-cover" />
             </div>
 
             {/* Ghost Emoji Sticker */}
