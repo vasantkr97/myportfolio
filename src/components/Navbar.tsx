@@ -13,11 +13,10 @@ const Navbar: React.FC = () => {
       const { gsap } = await import('gsap')
       const navbar = document.getElementById('main-navbar')
       if (navbar) {
-        gsap.set(navbar, { xPercent: -50, y: -20, opacity: 0 })
+        gsap.set(navbar, { y: -20, opacity: 0 })
         gsap.to(navbar, {
           opacity: 1,
           y: 0,
-          xPercent: -50,
           duration: 0.8,
           ease: 'power2.out',
           delay: 0.5,
@@ -188,8 +187,8 @@ const Navbar: React.FC = () => {
       {/* Main Navigation Bar */}
       <nav
         id="main-navbar"
-        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[var(--bg-secondary)]/60 border border-[var(--border-color)]/50 backdrop-blur-xl rounded-full px-5 py-2.5 shadow-md ease-in-out transition-transform duration-500 w-fit max-w-[95vw]"
-        style={{ opacity: 0, transform: 'translate(-50%, -20px)' }}
+        className="fixed top-4 left-0 right-0 mx-auto z-50 bg-[var(--bg-secondary)]/60 border border-[var(--border-color)]/50 backdrop-blur-xl rounded-full px-5 py-2.5 shadow-md ease-in-out transition-transform duration-500 w-fit max-w-[95vw]"
+        style={{ opacity: 0, transform: 'translateY(-20px)' }}
       >
         <div className="flex items-center gap-6">
           <Link
