@@ -119,7 +119,7 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
         }
     }, [])
 
-    const pageTitle = 'Vasanth Kumar - Software Engineer Portfolio'
+    const pageTitle = 'Vasanth Software Engineer'
     const description =
         'Portfolio of Vasanth Kumar, a software engineer specializing in web development, React, Next.js, Svelte, and modern JavaScript frameworks.'
 
