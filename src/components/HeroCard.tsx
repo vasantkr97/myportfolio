@@ -70,54 +70,54 @@ const HeroCard: React.FC = () => {
   }, [])
 
   return (
-    <div ref={containerRef} className="hero-container border border-dotted border-[var(--border-color)] p-3 sm:p-4 relative rounded-xl bg-[var(--card-bg)]">
+    <div ref={containerRef} className="hero-container border border-dotted border-[var(--border-color)] p-3 relative rounded-xl bg-[var(--card-bg)]">
       {/* Corner decorative element */}
 
 
-      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3">
         {/* Left Content */}
-        <div className="flex-1 space-y-2">
+        <div className="flex-1 space-y-1.5">
           {/* Greeting */}
 
 
           {/* Name + Profile Picture Row (Mobile shows picture at the end, Desktop hides it) */}
-          <div className="hero-name-row flex items-center justify-between lg:justify-start gap-3">
+          <div className="hero-name-row flex items-center justify-between lg:justify-start gap-2">
             <h1
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] font-display"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] font-display"
             >
               Vasanth Kumar
             </h1>
             {/* Mobile Profile Picture - Only visible on mobile, positioned at the end */}
             <div className="lg:hidden hero-avatar-wrapper flex-shrink-0">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
                 <img src="/pic12.png" alt="Vasanth Kumar" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
 
           {/* Location & Status Badges */}
-          <div className="hero-location-row flex flex-wrap items-center gap-2 text-sm">
-            <span className="inline-flex items-center gap-1.5 border border-[var(--border-color)] rounded px-3 py-1 text-[var(--text-secondary)]">
+          <div className="hero-location-row flex flex-wrap items-center gap-1.5 text-sm">
+            <span className="inline-flex items-center gap-1 border border-[var(--border-color)] rounded px-2 py-0.5 text-[var(--text-secondary)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]"></span>
-              <span className="font-medium text-xs">Bengaluru, India</span>
+              <span className="font-medium text-[10px] sm:text-xs">Bengaluru, India</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 border border-[var(--border-color)] rounded px-3 py-1 text-[var(--text-secondary)]">
-              <span className="font-medium text-xs">currently @Super30</span>
+            <span className="inline-flex items-center gap-1 border border-[var(--border-color)] rounded px-2 py-0.5 text-[var(--text-secondary)]">
+              <span className="font-medium text-[10px] sm:text-xs">currently @Super30</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 border border-[var(--border-color)] rounded px-3 py-1 text-[var(--text-secondary)]">
-              <span className="font-medium tabular-nums text-xs">
+            <span className="inline-flex items-center gap-1 border border-[var(--border-color)] rounded px-2 py-0.5 text-[var(--text-secondary)]">
+              <span className="font-medium tabular-nums text-[10px] sm:text-xs">
                 {time.formatted} IST
               </span>
             </span>
           </div>
 
           {/* Bio */}
-          <p className="hero-bio text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed max-w-2xl pt-1">
+          <p className="hero-bio text-[var(--text-secondary)] text-sm leading-relaxed max-w-2xl pt-1">
             Hello! I'm a <span className="font-bold text-[var(--text-primary)]">FullStack Developer</span> passionate about building scalable, user-centric applications. With a focus on performance and clean architecture, I specialize in crafting robust solutions using
           </p>
 
           {/* Tech Stack Line */}
-          <div className="hero-tech-line flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm sm:text-base text-[var(--text-secondary)]">
+          <div className="hero-tech-line flex flex-wrap items-center gap-x-1.5 gap-y-1.5 text-sm text-[var(--text-secondary)]">
             <TechBadge icon="nodejs" label="Node.js" />
             <span>,</span>
             <TechBadge icon="typescript" label="TypeScript" />
@@ -142,19 +142,19 @@ const HeroCard: React.FC = () => {
               href={socials.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta inline-flex items-center gap-2 border border-[var(--border-color)] rounded-md px-3 py-1.5 text-sm font-medium hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
+              className="hero-cta inline-flex items-center gap-1.5 border border-[var(--border-color)] rounded-md px-2.5 py-1 text-xs font-medium hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
             >
-              <TwitterIcon size="w-4 h-4" />
+              <TwitterIcon size="w-3.5 h-3.5" />
               <span>Twitter DM</span>
             </a>
 
-            <span className="hero-cta text-[var(--text-secondary)] text-sm">OR</span>
+            <span className="hero-cta text-[var(--text-secondary)] text-xs">OR</span>
 
             <a
               href={socials.mail}
-              className="hero-cta inline-flex items-center gap-2 border border-[var(--border-color)] rounded-md px-3 py-1.5 text-sm font-medium hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
+              className="hero-cta inline-flex items-center gap-1.5 border border-[var(--border-color)] rounded-md px-2.5 py-1 text-xs font-medium hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               <span>Email Me</span>
@@ -165,28 +165,28 @@ const HeroCard: React.FC = () => {
               href={socials.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta w-8 h-8 flex items-center justify-center border border-[var(--border-color)] rounded-md hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
+              className="hero-cta w-7 h-7 flex items-center justify-center border border-[var(--border-color)] rounded-md hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
               aria-label="Twitter"
             >
-              <TwitterIcon size="w-4 h-4" />
+              <TwitterIcon size="w-3.5 h-3.5" />
             </a>
             <a
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta w-8 h-8 flex items-center justify-center border border-[var(--border-color)] rounded-md hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
+              className="hero-cta w-7 h-7 flex items-center justify-center border border-[var(--border-color)] rounded-md hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
               aria-label="GitHub"
             >
-              <GithubIcon size="w-4 h-4" />
+              <GithubIcon size="w-3.5 h-3.5" />
             </a>
             <a
               href={socials.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta w-8 h-8 flex items-center justify-center border border-[var(--border-color)] rounded-md hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
+              className="hero-cta w-7 h-7 flex items-center justify-center border border-[var(--border-color)] rounded-md hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-colors"
               aria-label="LinkedIn"
             >
-              <LinkedInIcon size="w-4 h-4" />
+              <LinkedInIcon size="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
@@ -195,7 +195,7 @@ const HeroCard: React.FC = () => {
         <div className="hidden lg:flex hero-avatar-wrapper flex-shrink-0 justify-center lg:justify-end">
           <div className="relative">
             {/* Avatar Box */}
-            <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-32 md:h-32 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
+            <div className="w-24 h-24 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
               <img src="/pic12.png" alt="Vasanth Kumar" className="w-full h-full object-cover" />
             </div>
 

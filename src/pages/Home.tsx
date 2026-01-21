@@ -38,19 +38,7 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
 
             gsap.ticker.lagSmoothing(0)
 
-            // Initialize page animations
-            const navbar = document.getElementById('main-navbar')
-            if (navbar) {
-                gsap.set(navbar, { y: -20, opacity: 0, visibility: 'hidden' })
-                gsap.set(navbar, { visibility: 'visible' })
-                gsap.to(navbar, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    delay: 0.2,
-                    ease: 'power3.out',
-                })
-            }
+
 
             const badges = document.querySelectorAll('.hero-top-badges .badge')
             if (badges.length > 0) {
@@ -141,7 +129,7 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
                 <Navbar />
 
                 {/* Hero Section */}
-                <div className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] relative z-20 mx-auto mt-[80px] md:mt-[100px] lg:mt-[140px] mb-16 md:mb-20 lg:mb-24">
+                <div className="w-[85%] xs:w-[80%] sm:w-[75%] md:w-[70%] lg:w-[65%] xl:w-[55%] 2xl:w-[50%] relative z-20 mx-auto mt-[140px] md:mt-[160px] lg:mt-[200px] mb-16 md:mb-20 lg:mb-24">
                     <div className="flex flex-row justify-between items-center gap-2 mb-4 px-2 sm:px-8 hero-top-badges">
 
                     </div>
@@ -157,29 +145,29 @@ const Home: React.FC<HomeProps> = ({ showLoader = false }) => {
                             <HeroCard />
                         </div>
                     </div>
-                    <div className="github-activity relative mt-6 mb-8 border border-dotted border-[var(--border-color)] p-3 sm:p-5 md:p-6 rounded-xl bg-[var(--card-bg)]">
+                    <div className="github-activity relative mt-4 mb-6 border border-dotted border-[var(--border-color)] p-3 relative rounded-xl bg-[var(--card-bg)]">
                         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
                         <GitHubActivity username="vasantkr97" title="GITHUB ACTIVITY" />
                     </div>
                 </div>
 
                 {/* About Me Section */}
-                <div id="about" className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
+                <div id="about" className="w-[85%] xs:w-[80%] sm:w-[75%] md:w-[70%] lg:w-[65%] xl:w-[55%] 2xl:w-[50%] mx-auto mb-8 md:mb-10 lg:mb-12">
                     <AboutMe />
                 </div>
 
                 {/* Projects Section */}
-                <div className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
+                <div className="w-[85%] xs:w-[80%] sm:w-[75%] md:w-[70%] lg:w-[65%] xl:w-[55%] 2xl:w-[50%] mx-auto mb-8 md:mb-10 lg:mb-12">
                     <Projects />
                 </div>
 
                 {/* Skills Section */}
-                <div id="skills" className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
+                <div id="skills" className="w-[85%] xs:w-[80%] sm:w-[75%] md:w-[70%] lg:w-[65%] xl:w-[55%] 2xl:w-[50%] mx-auto mb-8 md:mb-10 lg:mb-12">
                     <Skills />
                 </div>
 
                 {/* Experience Section */}
-                <div className="w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 md:mb-10 lg:mb-12">
+                <div className="w-[85%] xs:w-[80%] sm:w-[75%] md:w-[70%] lg:w-[65%] xl:w-[55%] 2xl:w-[50%] mx-auto mb-8 md:mb-10 lg:mb-12">
                     <Experience />
                 </div>
 

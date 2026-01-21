@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ThemeChanger from './ThemeChanger'
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const location = useLocation()
-  const navigate = useNavigate()
 
   useEffect(() => {
     // Animate navbar on mount
@@ -14,12 +13,18 @@ const Navbar: React.FC = () => {
       const { gsap } = await import('gsap')
       const navbar = document.getElementById('main-navbar')
       if (navbar) {
+        gsap.set(navbar, { xPercent: -50, y: -20, opacity: 0 })
         gsap.to(navbar, {
           opacity: 1,
           y: 0,
+          xPercent: -50,
           duration: 0.8,
           ease: 'power2.out',
           delay: 0.5,
+          onComplete: () => {
+             // Clear transform style so Tailwind classes (which rely on CSS variables) can take over for scroll interactions
+             gsap.set(navbar, { clearProps: 'transform' }) 
+          }
         })
       }
     }
@@ -29,22 +34,18 @@ const Navbar: React.FC = () => {
     let prevScrollPos = window.scrollY
     let ticking = false
     const navbar = document.getElementById('main-navbar')
-    navbar?.classList.add('border-transparent')
+    // navbar?.classList.add('border-transparent') // Removed transparent logic for always-visible pill
 
     const handleScroll = () => {
       const currentScrollPos = window.scrollY
       const isScrollingUp = prevScrollPos > currentScrollPos
 
-      if (currentScrollPos > 100) {
-        navbar?.classList.remove('border-transparent')
-      } else {
-        navbar?.classList.add('border-transparent')
-      }
-
+      // For the floating pill, we might want it to always be visible or auto-hide
+      // Let's keep the auto-hide behavior but without the border manipulation since it always has a border now
       if (!isScrollingUp && currentScrollPos > 100) {
-        navbar?.classList.add('-translate-y-full')
+        navbar?.classList.add('-translate-y-[200%]') // Hide completely
       } else {
-        navbar?.classList.remove('-translate-y-full')
+        navbar?.classList.remove('-translate-y-[200%]')
       }
 
       prevScrollPos = currentScrollPos
@@ -122,7 +123,14 @@ const Navbar: React.FC = () => {
           }`}
       >
         <nav className="flex flex-col justify-between h-full">
-          <div></div>
+          <div className="flex justify-end p-2">
+             <button
+              onClick={handleMenuToggle}
+              className="text-[var(--text-primary)] focus:outline-none"
+            >
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
           <ul className="list-none p-0 m-0">
             <li className="mb-6">
               <Link
@@ -180,27 +188,28 @@ const Navbar: React.FC = () => {
       {/* Main Navigation Bar */}
       <nav
         id="main-navbar"
-        className="sticky top-0 left-0 right-0 z-50 bg-[var(--bg-secondary)] border-b border-dotted border-[var(--border-color)] bg-opacity-80 backdrop-blur-sm h-16 ease-in-out transition-transform duration-300"
-        style={{ opacity: 0, transform: 'translateY(-20px)' }}
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[var(--bg-secondary)]/60 border border-[var(--border-color)]/50 backdrop-blur-xl rounded-full px-5 py-2.5 shadow-md ease-in-out transition-transform duration-500 w-fit max-w-[95vw]"
+        style={{ opacity: 0, transform: 'translate(-50%, -20px)' }}
       >
-        <div className="w-full max-w-7xl mx-auto px-4 xl:px-8 h-full flex items-center justify-between">
+        <div className="flex items-center gap-6">
           <Link
             to="/"
             id="logo-link"
             onClick={handleLogoClick}
-            className="font-medium text-xl text-[var(--text-primary)] flex items-center gap-2"
+            className="font-medium text-xl text-[var(--text-primary)] flex items-center gap-2 group"
           >
-            <img src="/pic12.png" alt="Vasanth Kumar" className="w-8 h-8 rounded-full object-cover border border-[var(--accent-primary)]" />
-            <span className="text-[var(--accent-primary)] font-bold text-3xl">.</span>
+             <div className="relative">
+                <img src="/pic12.png" alt="Vasanth Kumar" className="w-7 h-7 rounded-full object-cover border border-[var(--accent-primary)] transition-transform duration-300 group-hover:scale-110" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:ml-8">
-            <ul className="flex items-center list-none gap-8 p-0 m-0">
+          <div className="hidden md:flex">
+            <ul className="flex items-center list-none gap-5 p-0 m-0">
               <li>
                 <Link
                   to="/"
-                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
+                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] text-sm font-medium transition-colors"
                 >
                   Home
                 </Link>
@@ -208,15 +217,15 @@ const Navbar: React.FC = () => {
               <li>
                 <a
                   href="#about"
-                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
+                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] text-sm font-medium transition-colors"
                 >
-                  About Me
+                  About
                 </a>
               </li>
               <li>
                 <a
                   href="#projects"
-                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
+                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] text-sm font-medium transition-colors"
                 >
                   Projects
                 </a>
@@ -224,7 +233,7 @@ const Navbar: React.FC = () => {
               <li>
                 <a
                   href="#skills"
-                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
+                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] text-sm font-medium transition-colors"
                 >
                   Skills
                 </a>
@@ -232,27 +241,27 @@ const Navbar: React.FC = () => {
               <li>
                 <Link
                   to="/socials"
-                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] py-2 text-base font-normal"
+                  className="text-[var(--text-primary)] hover:text-[var(--accent-primary)] text-sm font-medium transition-colors"
                 >
                   Contact
                 </Link>
               </li>
-              <li className="flex items-center">
+              <li className="flex items-center pl-2 border-l border-[var(--border-color)]">
                  <ThemeChanger variant="icon" />
               </li>
             </ul>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden ml-4">
+          <div className="md:hidden ml-2">
             <button
-              className="menu-toggle text-sm font-medium bg-transparent border-none cursor-pointer text-[var(--text-primary)]"
+              className="menu-toggle overflow-hidden w-8 h-8 flex items-center justify-center text-[var(--text-primary)] hover:text-[var(--accent-primary)] transition-colors"
               aria-label="Toggle Menu"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-sidebar"
               onClick={handleMenuToggle}
             >
-              <span className="toggle-text">{isMenuOpen ? 'Close' : 'Menu'}</span>
+               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
           </div>
         </div>

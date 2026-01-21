@@ -325,7 +325,7 @@ const GitHubActivity: React.FC<GitHubActivityProps> = ({
                 </div>
             )}
             <div
-                className="activity-graph-container overflow-x-auto pb-4 scrollbar-hide"
+                className="activity-graph-container overflow-x-auto pt-14 -mt-10 pb-4 scrollbar-hide"
                 style={{
                     maskImage: 'linear-gradient(to right, transparent, black 15px, black calc(100% - 15px), transparent)',
                     WebkitMaskImage: 'linear-gradient(to right, transparent, black 15px, black calc(100% - 15px), transparent)',

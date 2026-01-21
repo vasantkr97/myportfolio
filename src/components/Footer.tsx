@@ -49,25 +49,25 @@ const Footer: React.FC = () => {
     ]
 
     return (
-        <footer className="footer-section w-[90%] xs:w-[85%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%] mx-auto mb-8 mt-8">
-            <div className="footer-content border border-dotted border-[var(--border-color)] p-4 sm:p-5 text-center bg-[var(--card-bg)] relative rounded-xl">
+        <footer className="footer-section w-[85%] xs:w-[80%] sm:w-[75%] md:w-[70%] lg:w-[65%] xl:w-[55%] 2xl:w-[50%] mx-auto mb-8 mt-6">
+            <div className="footer-content border border-dotted border-[var(--border-color)] p-4 relative rounded-xl bg-[var(--card-bg)]">
                 <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-2">Let's Connect</h2>
-                <p className="text-[var(--text-secondary)] mb-4 text-base sm:text-lg">
+                <h2 className="text-xl sm:text-2xl font-bold mb-1.5">Let's Connect</h2>
+                <p className="text-[var(--text-secondary)] mb-3 text-sm sm:text-base">
                     Feel free to reach out through any of these platforms
                 </p>
 
-                <div className="flex flex-wrap justify-center gap-3">
+                <div className="flex flex-wrap justify-center gap-2">
                     {socialLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-3 py-1.5 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 transform hover:-translate-y-0.5"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 transform hover:-translate-y-0.5 text-xs sm:text-sm font-medium"
                         >
                             {link.icon}
-                            <span className="font-medium">{link.name}</span>
+                            <span>{link.name}</span>
                         </a>
                     ))}
                 </div>

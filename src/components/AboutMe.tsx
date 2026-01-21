@@ -86,61 +86,61 @@ const AboutMe: React.FC<AboutMeProps> = ({ className = '' }) => {
 
   return (
     <div className={`about-me-container relative ${className}`}>
-      <div className="border border-dotted border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative about-content-wrapper bg-[var(--card-bg)] rounded-xl">
+      <div className="border border-dotted border-[var(--border-color)] p-3 sm:p-4 md:p-5 relative about-content-wrapper bg-[var(--card-bg)] rounded-xl">
         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
 
         {/* Header */}
-        <div className="about-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dotted">
+        <div className="about-title-section flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-4 border-b border-[var(--border-color)] pb-3 sm:pb-4 border-dotted">
           <Badge size="sm" className="w-fit">
             <span className="text-xs font-bold uppercase">About Me</span>
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-semibold about-title leading-none">
+          <h2 className="text-xl sm:text-2xl font-semibold about-title leading-none">
             Behind the Code
           </h2>
         </div>
 
         {/* Bio Section */}
-        <div className="about-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dotted">
-          <div className="space-y-3 bio-wrapper">
-            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+        <div className="about-content-section mb-4 pb-4 border-b border-[var(--border-color)] border-dotted">
+          <div className="space-y-2 bio-wrapper">
+            <p className="text-sm text-[var(--text-secondary)] about-bio">
               {introSection}
             </p>
-            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+            <p className="text-sm text-[var(--text-secondary)] about-bio">
               {skillsSection}
             </p>
-            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+            <p className="text-sm text-[var(--text-secondary)] about-bio">
               {interestsSection}
             </p>
-            <p className="text-sm sm:text-base text-[var(--text-secondary)] about-bio">
+            <p className="text-sm text-[var(--text-secondary)] about-bio">
               {valuesSection}
             </p>
           </div>
         </div>
 
         {/* Education Section */}
-        <div className="about-education-section mb-5 pb-5 border-b border-[var(--border-color)] border-dotted">
-          <div className="flex items-center gap-2 mb-4">
+        <div className="about-education-section mb-4 pb-4 border-b border-[var(--border-color)] border-dotted">
+          <div className="flex items-center gap-2 mb-3">
             <Badge size="sm">
               <span className="text-xs font-bold uppercase">Education</span>
             </Badge>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             <div className="md:col-span-3 education-content">
-              <h3 className="text-xl sm:text-2xl font-medium education-title">
+              <h3 className="text-lg sm:text-xl font-medium education-title">
                 B.Eng in Computer Science with AI Specialization
               </h3>
-              <p className="text-sm sm:text-base mt-2 text-[var(--text-secondary)] education-period">
-                Sathyabama University, Chennai, Tamil Nadu · 2020 - 2024
+              <p className="text-xs sm:text-sm mt-1 text-[var(--text-secondary)] education-period">
+                Sathyabama University, Chennai · 2020 - 2024
               </p>
-              <p className="text-sm sm:text-base mt-3 education-desc text-[var(--text-secondary)]">
+              <p className="text-xs sm:text-sm mt-2 education-desc text-[var(--text-secondary)]">
                 Diving deeper into the "why" behind code while building real projects. I'm
                 especially into algorithms and data structures—the secret recipes that make
                 good software great!
               </p>
             </div>
             <div className="md:col-span-2 flex items-center justify-center md:justify-end education-visual">
-              <span className="text-6xl sm:text-7xl font-bold text-white opacity-[0.4] education-highlight">
+              <span className="text-5xl sm:text-6xl font-bold text-white opacity-[0.4] education-highlight">
                 B.Eng
               </span>
             </div>

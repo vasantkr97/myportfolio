@@ -155,32 +155,32 @@ const Skills: React.FC<SkillsProps> = ({ className = '' }) => {
 
   return (
     <div className={`skills-container relative ${className}`}>
-      <div className="border border-dotted border-[var(--border-color)] p-3 sm:p-5 md:p-6 relative skills-content-wrapper bg-[var(--card-bg)] rounded-xl">
+      <div className="border border-dotted border-[var(--border-color)] p-3 sm:p-4 md:p-5 relative skills-content-wrapper bg-[var(--card-bg)] rounded-xl">
         <div className="size-4 bg-[var(--border-color)] absolute -top-2 -left-2"></div>
 
         {/* Header */}
-        <div className="skills-title-section flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-5 border-b border-[var(--border-color)] pb-4 sm:pb-5 border-dotted">
+        <div className="skills-title-section flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-4 border-b border-[var(--border-color)] pb-3 sm:pb-4 border-dotted">
           <Badge size="sm" className="w-fit">
             <span className="text-xs font-bold uppercase">Technical Skills</span>
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-semibold skills-title leading-none">
+          <h2 className="text-xl sm:text-2xl font-semibold skills-title leading-none">
             My Toolkit
           </h2>
         </div>
 
         {/* Skills Grid */}
-        <div className="skills-content-section mb-5 pb-5 border-b border-[var(--border-color)] border-dotted">
-          <div className="space-y-4">
+        <div className="skills-content-section mb-4 pb-4 border-b border-[var(--border-color)] border-dotted">
+          <div className="space-y-3">
             {skillCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="skill-category" data-category={categoryIndex}>
-                <h3 className="text-lg font-semibold mb-2.5 category-title text-[var(--text-primary)]">
+                <h3 className="text-base font-semibold mb-2 category-title text-[var(--text-primary)]">
                   {category.title}
                 </h3>
-                <div className="flex flex-wrap gap-2 items-center">
+                <div className="flex flex-wrap gap-1.5 items-center">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="skill-pill inline-flex items-center gap-1.5 px-2 py-1 border border-[var(--border-color)] rounded-lg text-xs font-medium hover:bg-[var(--accent-primary)] hover:text-black transition-colors cursor-pointer"
+                      className="skill-pill inline-flex items-center gap-1.5 px-2 py-1 border border-[var(--border-color)] rounded-md text-xs font-medium hover:bg-[var(--accent-primary)] hover:text-black transition-colors cursor-pointer"
                       data-skill={skillIndex}
                     >
                       <span className="skill-icon">{skill.icon}</span>
@@ -194,9 +194,9 @@ const Skills: React.FC<SkillsProps> = ({ className = '' }) => {
         </div>
 
         {/* CTA Section */}
-        <div className="skills-cta-section flex flex-col items-start gap-2">
-          <h3 className="text-lg font-semibold">Always Learning, Always Growing</h3>
-          <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
+        <div className="skills-cta-section flex flex-col items-start gap-1.5">
+          <h3 className="text-base font-semibold">Always Learning, Always Growing</h3>
+          <p className="text-xs text-[var(--text-secondary)]">
             Technology evolves fast, and so do I! Currently exploring new AI frameworks and
             edge computing solutions.
           </p>
