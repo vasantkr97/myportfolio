@@ -66,7 +66,6 @@ export const projects: Project[] = [
     status: "Completed",
     githubOwner: "vasantkr97",
     githubRepo: "codev-cli",
-    liveUrl: "#",
     demo: "#",
     technologies: [
       "TypeScript",
@@ -84,7 +83,6 @@ export const projects: Project[] = [
     status: "In Development",
     githubOwner: "vasantkr97",
     githubRepo: "tiktok-trading",
-    liveUrl: "#",
     technologies: ["TypeScript", "Node.js", "Express", "React", "Docker"],
   },
 ];
