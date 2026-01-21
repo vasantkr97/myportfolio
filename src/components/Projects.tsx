@@ -164,15 +164,15 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
                       {/* Description */}
                       {project.description === 'Coming Soon' ? (
                         <div className="relative w-full py-6 rounded-xl border border-dashed border-gray-700/50 bg-gray-900/30 flex items-center justify-center group/coming-soon overflow-hidden mb-4">
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-800/10 to-transparent translate-x-[-100%] group-hover/coming-soon:translate-x-[100%] transition-transform duration-1000"></div>
-                              <span className="text-[var(--text-secondary)] font-mono text-sm tracking-widest uppercase group-hover/coming-soon:text-[var(--accent-primary)] transition-colors duration-300">
-                                  Coming Soon
-                              </span>
-                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-800/10 to-transparent translate-x-[-100%] group-hover/coming-soon:translate-x-[100%] transition-transform duration-1000"></div>
+                          <span className="text-[var(--text-secondary)] font-mono text-sm tracking-widest uppercase group-hover/coming-soon:text-[var(--accent-primary)] transition-colors duration-300">
+                            Coming Soon
+                          </span>
+                        </div>
                       ) : (
-                          <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-2 line-clamp-3">
-                              {project.description}
-                          </p>
+                        <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-2 line-clamp-3">
+                          {project.description}
+                        </p>
                       )}
 
                       {/* Technologies */}
@@ -198,14 +198,15 @@ const Projects: React.FC<ProjectsProps> = ({ className = '' }) => {
         </div>
 
         {/* View More Projects CTA */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-10 px-4 sm:px-0">
           <a
             href="https://github.com/vasantkr97?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-full hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 text-sm font-medium group"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-full hover:bg-[var(--accent-primary)] hover:text-black hover:border-[var(--accent-primary)] transition-all duration-300 text-sm font-medium group"
           >
-            <span>View More Projects on GitHub</span>
+            <span className="hidden sm:inline">View More Projects on GitHub</span>
+            <span className="sm:hidden">View More Projects</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>

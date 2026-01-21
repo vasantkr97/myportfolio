@@ -80,14 +80,19 @@ const HeroCard: React.FC = () => {
           {/* Greeting */}
 
 
-          {/* Name + Status Badge Row */}
-          <div className="hero-name-row flex flex-wrap items-center gap-2">
+          {/* Name + Profile Picture Row (Mobile shows picture at the end, Desktop hides it) */}
+          <div className="hero-name-row flex items-center justify-between lg:justify-start gap-3">
             <h1
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] font-display"
             >
               Vasanth Kumar
             </h1>
-
+            {/* Mobile Profile Picture - Only visible on mobile, positioned at the end */}
+            <div className="lg:hidden hero-avatar-wrapper flex-shrink-0">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
+                <img src="/pic12.png" alt="Vasanth Kumar" className="w-full h-full object-cover" />
+              </div>
+            </div>
           </div>
 
           {/* Location & Status Badges */}
@@ -186,11 +191,11 @@ const HeroCard: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side - Avatar */}
-        <div className="hero-avatar-wrapper flex-shrink-0 flex justify-center lg:justify-end">
+        {/* Right Side - Avatar (Desktop Only) */}
+        <div className="hidden lg:flex hero-avatar-wrapper flex-shrink-0 justify-center lg:justify-end">
           <div className="relative">
             {/* Avatar Box */}
-            <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-32 md:h-32 rounded-lg border-2 border-[#FFEF00] overflow-hidden bg-black flex items-center justify-center">
               <img src="/pic12.png" alt="Vasanth Kumar" className="w-full h-full object-cover" />
             </div>
 
